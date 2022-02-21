@@ -38,11 +38,13 @@ interface IGameContextProps {
     isFinished: boolean;
     totalTries: number;
     scores: ScoresType;
+    showHelp: boolean;
     setActiveCell(index: number | ((prev: number) => void)): void;
     setKeyMap(map: KeyMapType | ((prev: KeyMapType) => void)): void;
     inputChar(char: string | null): void;
     confirmRow(): void;
     restart(): void;
+    setShowHelp(show: boolean): void;
 }
 
 export const GameContext = createContext<IGameContextProps>(
@@ -69,6 +71,7 @@ export const GameProvider: React.FC = ({ children }) => {
     const [rows, setRows] = useState<RowType[]>([]);
     const [keyMap, setKeyMap] = useState<KeyMapType>({} as KeyMapType);
     const [isInvalid, setInvalid] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);
 
     const [scores, setScores] = useState<ScoresType>({
         totalGames: 0,
@@ -253,11 +256,13 @@ export const GameProvider: React.FC = ({ children }) => {
             isFinished: won || lost,
             totalTries,
             scores,
+            showHelp,
             setActiveCell,
             setKeyMap,
             inputChar,
             confirmRow,
             restart,
+            setShowHelp,
         }),
         [
             word,
@@ -270,11 +275,13 @@ export const GameProvider: React.FC = ({ children }) => {
             lost,
             totalTries,
             scores,
+            showHelp,
             inputChar,
             confirmRow,
             setActiveCell,
             setKeyMap,
             restart,
+            setShowHelp,
         ]
     );
 

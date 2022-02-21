@@ -4,10 +4,11 @@ import slugify from 'slugify';
 
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import HelpOverlay from '../../components/HelpOverlay';
 import Main from '../../components/Main';
 import WinOverlay from '../../components/WinOverlay';
 import { useGame } from '../../hooks/Game';
-import { Cell, Row, RowsContainer } from './styles';
+import { Cell, Row, RowsContainer, Wrapper } from './styles';
 
 const Game: React.FC = () => {
     const {
@@ -18,10 +19,9 @@ const Game: React.FC = () => {
         isInvalid,
         won,
         isFinished,
+        showHelp,
         setActiveCell,
     } = useGame();
-
-    console.log('WORD', word);
 
     const checkCellScoreClass = useCallback(
         (row, col) => {
@@ -67,7 +67,7 @@ const Game: React.FC = () => {
     );
 
     return (
-        <>
+        <Wrapper>
             <Header />
             <Main>
                 <RowsContainer>
@@ -76,11 +76,11 @@ const Game: React.FC = () => {
                     )}
                     {rows.map((row, index) => (
                         <Row
-                            className={
+                            className={`${
                                 activeRow === index && !isFinished
                                     ? 'active'
-                                    : undefined
-                            }
+                                    : ''
+                            }${activeRow > index ? 'confirmed' : ''}`}
                             key={index}
                         >
                             {row.map((cell, i) => (
@@ -104,7 +104,8 @@ const Game: React.FC = () => {
             </Main>
             <Footer />
             <WinOverlay show={isFinished} won={won} />
-        </>
+            <HelpOverlay show={showHelp} />
+        </Wrapper>
     );
 };
 

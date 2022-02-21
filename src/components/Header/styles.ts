@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { breakpoints } from '../../constants/breakpoints';
 
 export const HeaderContainer = styled.header`
-    padding: 30px 0;
-
-    @media (max-width: ${breakpoints.sm}px) {
-        padding: 15px 0;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 12vh;
 `;
 
 export const Logo = styled.p`
@@ -20,7 +20,7 @@ export const Logo = styled.p`
     }
 
     @media (max-width: ${breakpoints.sm}px) {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 `;
 
@@ -30,4 +30,12 @@ export const LogoCredit = styled.p`
     font-weight: 200;
     color: var(--color-purple);
     line-height: 1;
+`;
+
+export const ButtonLink = styled.button`
+    text-decoration: underline;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent;
+    color: white;
 `;

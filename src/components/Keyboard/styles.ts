@@ -24,8 +24,7 @@ export const KeyRow = styled.div`
 
 export const KeyCap = styled.button`
     display: inline-flex;
-    flex: 1;
-    min-width: 35px;
+    flex-grow: 1;
     height: 58px;
     justify-content: center;
     align-items: center;
@@ -53,7 +52,6 @@ export const KeyCap = styled.button`
 
     @media (max-width: ${breakpoints.sm}px) {
         font-size: 1rem;
-        min-width: auto;
         height: 40px;
 
         &.key-delete {

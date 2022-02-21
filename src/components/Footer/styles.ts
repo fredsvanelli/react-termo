@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
+    display: flex;
+    justify-content: center;
     margin-top: auto;
+    height: 35vh;
     padding: 30px 0 0;
 
     & > div {
-        max-width: 600px;
-        margin: 0 auto;
+        width: 100%;
     }
 `;
 

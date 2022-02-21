@@ -1,12 +1,22 @@
-import { Background, Panel } from './styles';
+import { Background, CloseButton, Panel, PanelContent } from './styles';
 
 interface IOverlayProps {
     show?: boolean;
+    onClickCloseButton?: () => void;
 }
 
-const Overlay: React.FC<IOverlayProps> = ({ show = false, children }) => (
+const Overlay: React.FC<IOverlayProps> = ({
+    show = false,
+    onClickCloseButton,
+    children,
+}) => (
     <Background className={show ? 'show' : undefined}>
-        <Panel>{children}</Panel>
+        <Panel>
+            <PanelContent>{children}</PanelContent>
+            {onClickCloseButton && (
+                <CloseButton type="button" onClick={onClickCloseButton} />
+            )}
+        </Panel>
     </Background>
 );
 

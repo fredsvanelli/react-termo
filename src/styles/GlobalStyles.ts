@@ -17,13 +17,9 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-    
-    html, body, #root {
-        min-height: 100vh;
-    }
 
     body {
-        margin: 0 15px;
+        margin: 0 30px;
         padding: 0;
         background-color: var(--color-dark);
     }
@@ -51,6 +47,7 @@ export default createGlobalStyle`
 
     .col { flex: 1; }
     .col-6 { width: 50%; }
+    .col-3 { width: 25%; }
 
     @media (min-width: 768px) {
         .col-md-3 { width: 25%; }
@@ -59,6 +56,8 @@ export default createGlobalStyle`
     .d-flex { display: flex; }
 
     .text-center {text-align: center; }
+    .text-right {text-align: right; }
+    
     .text-red {color: var(--color-red); }
     .text-white {color: var(--color-white); }
 
@@ -72,4 +71,6 @@ export default createGlobalStyle`
     .fs-4 { font-size: 1rem; };
 
     .fw-200 { font-weight: 200; }
+
+    .w-100 { width: 100%; }
 `;

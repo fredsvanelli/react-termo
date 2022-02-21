@@ -28,11 +28,57 @@ export const Panel = styled.div`
     color: white;
     background-color: black;
     border-radius: 15px;
-    padding: 45px;
     max-height: 90vh;
-    overflow-y: auto;
 
     @media (max-width: ${breakpoints.md}px) {
         top: 30px;
+    }
+`;
+export const PanelContent = styled.div`
+    color: white;
+    padding: 0 45px;
+    margin: 45px 0;
+    overflow-y: auto;
+    max-height: 80vh;
+
+    @media (max-width: ${breakpoints.md}px) {
+        top: 30px;
+    }
+`;
+
+export const CloseButton = styled.button`
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: var(--color-gray);
+    border-radius: 3px;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 13px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        background-color: white;
+        border-radius: 3px;
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 13px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: white;
+        border-radius: 3px;
     }
 `;

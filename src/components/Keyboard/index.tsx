@@ -108,7 +108,7 @@ const Keyboard: React.FC = () => {
     });
 
     return (
-        <div>
+        <>
             <KeyRow>
                 {keys[0].map(key => (
                     <Key key={key} char={key} />
@@ -132,7 +132,7 @@ const Keyboard: React.FC = () => {
                     )
                 )}
             </KeyRow>
-        </div>
+        </>
     );
 };
 

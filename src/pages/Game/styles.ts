@@ -1,35 +1,61 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../constants/breakpoints';
 
+export const Wrapper = styled.div`
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+`;
+
 export const RowsContainer = styled.div`
-    width: min(calc(100vh / 3));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    width: 100%;
     max-width: 400px;
 `;
 
 export const Row = styled.div`
     display: flex;
+    flex: 1;
+    flex-grow: 1;
     justify-content: center;
 
     &.active .cell {
         background-color: #000 !important;
         cursor: pointer !important;
     }
+
+    @media (max-height: 719px) {
+        max-height: 20%;
+        display: none;
+
+        &.active,
+        &.confirmed {
+            display: flex;
+        }
+    }
 `;
 
 export const Cell = styled.button`
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex: 1;
-    height: calc(100vh / 17);
     font-size: 2vw;
     color: white;
     background-color: var(--color-gray);
     border: solid 3px var(--color-gray);
     border-radius: 4px;
     margin: 5px;
-    line-height: 1.4;
     cursor: default;
+
+    & > span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
     @media (max-width: ${breakpoints.xl}px) {
         font-size: 3vw;
@@ -53,16 +79,16 @@ export const Cell = styled.button`
         transform: translateY(-3px);
 
         & > span {
-            transform: translateY(-3px);
+            transform: translate(-50%, -55%);
         }
 
         &::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
+            bottom: -1px;
+            left: -1px;
+            right: -1px;
+            height: 6px;
             background-color: var(--color-purple);
         }
     }
