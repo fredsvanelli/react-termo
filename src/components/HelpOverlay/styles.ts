@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { breakpoints } from '../../constants/breakpoints';
 
 export const Title = styled.p`
     font-size: 1.5em;
